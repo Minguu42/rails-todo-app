@@ -37,3 +37,4 @@ yarn-debug.log*
 
 # エディタの設定ファイル
 .idea
+.env
