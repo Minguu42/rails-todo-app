@@ -1,0 +1,14 @@
+<%= form_with(model: @project, local: true) do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <%= f.label :name, "プロジェクト名" %>
+  <%= f.text_field :name, class: "form-control" %>
+
+  <%= f.label :description, "プロジェクトの説明" %>
+  <%= f.text_field :description, class: "form-control" %>
+
+  <%= f.label :color_id, "色を指定" %>
+  <%= f.select :color_id, [["赤", 1], ["青", 2], ["緑", 3]] %>
+
+  <%= f.submit "プロジェクトの更新", class: "btn btn-primary" %>
+<% end %>

@@ -22,9 +22,17 @@ class ProjectsController < ApplicationController
   end
 
   def edit
+    @project = Project.find(params[:id])
   end
 
   def update
+    @project = Project.find(params[:id])
+    if @project.update(project_params)
+      flash[:success] = "プロジェクトを更新しました"
+      redirect_to projects_url
+    else
+      render "projects/edit"
+    end
   end
 
   def destroy
