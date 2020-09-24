@@ -1,24 +1,36 @@
-# README
+# Rails-todo-app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+このアプリはRuby on Railsの学習目的で作成しました。
+基本的なTodoアプリの機能を実装することを通じて、Railsの使い方や書き方を学びました。
 
-Things you may want to cover:
+## 概要
 
-* Ruby version
+プロジェクト単位でタスクを作成し、タスクを管理するというものです。
 
-* System dependencies
+プロジェクトには色というものが付けられて、分けるときに役にたつものになっています。
 
-* Configuration
 
-* Database creation
+## 機能一覧
 
-* Database initialization
+- ユーザー登録
+- ログイン/ログアウト
+- プロジェクトの作成/表示/更新/削除
+- タスクの作成/表示/更新/削除
+- プロジェクト、タスクのページネーション
+- プロジェクト、タスクの並び替え
+- タスクの検索
 
-* How to run the test suite
+## 開発環境
 
-* Services (job queues, cache servers, search engines, etc.)
+|アプリ|Version|
+|:-----------|------------:|
+| Mac OS Catarina|10.15.6|
+| Ruby|2.6.6|
+| Ruby on Rails|6.0.3.3|
+| PostgreSQL|12.4|
 
-* Deployment instructions
+### 追加したGem
 
-* ...
+|Gem|Version|
+|:-----------|------------:|
+| Mac OS Catarina|10.15.6|
