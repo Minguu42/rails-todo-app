@@ -36,6 +36,9 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
+    Project.find(params).destroy
+    flash[:success] = "プロジェクトを削除しました"
+    redirect_to projects_url
   end
 
   private
