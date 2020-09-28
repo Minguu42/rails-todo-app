@@ -2,4 +2,8 @@
   <p class="alert alert-info"><%= notice %></p>
 <% elsif !alert.nil? %>
   <p class="alert alert-danger"><%= alert %></p>
+<% elsif flash.any? %>
+  <% flash.each do |type, msg| %>
+    <p class="alert alert-<%= type %>"><%= msg %></p>
+  <% end %>
 <% end %>
