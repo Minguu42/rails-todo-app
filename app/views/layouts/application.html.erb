@@ -10,11 +10,8 @@
   </head>
 
   <body>
-    <% if notice.nil? %>
-      <p class="notice"><%= notice %></p>
-    <% elsif alert.nil? %>
-      <p class="alert"><%= alert %></p>
-    <% end %>
+    <%= render 'layouts/header' %>
+    <%= render 'layouts/flash_messages' %>
     <%= yield %>
   </body>
 </html>
