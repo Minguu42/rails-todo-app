@@ -1,6 +1,9 @@
 class ProjectsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
-    @projects = Project.all
+    @user = current_user
+    @projects = @user.projects.all
   end
 
   def show
@@ -8,11 +11,13 @@ class ProjectsController < ApplicationController
   end
 
   def new
-    @project = Project.new
+    @user = current_user
+    @project = @user.projects.build
   end
 
   def create
-    @project = Project.new(project_params)
+    @user = current_user
+    @project = @user.projects.build(project_params)
     if @project.save
       flash[:success] = "プロジェクトを作成しました"
       redirect_to projects_url
