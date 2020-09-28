@@ -1,2 +1,7 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<div class="jumbotron">
+  <h1 class="display-4">Welcome to Rails-todo-app!</h1>
+  <p class="lead">これはRuby on Railsを用いて学習目的で作成したTodoアプリです</p>
+  <hr class="my-4">
+  <p>利用したい場合はここからサインアップしてください</p>
+  <%= link_to 'サインアップ', new_user_registration_path, class: 'btn btn-primary btn-lg', role: 'button' %>
+</div>
