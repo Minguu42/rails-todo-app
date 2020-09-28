@@ -20,7 +20,7 @@ class ProjectsController < ApplicationController
     @project = @user.projects.build(project_params)
     if @project.save
       flash[:success] = "プロジェクトを作成しました"
-      redirect_to projects_url
+      redirect_to root_url
     else
       render "projects/new"
     end
@@ -34,7 +34,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     if @project.update(project_params)
       flash[:success] = "プロジェクトを更新しました"
-      redirect_to projects_url
+      redirect_to root_url
     else
       render "projects/edit"
     end
@@ -43,7 +43,7 @@ class ProjectsController < ApplicationController
   def destroy
     Project.find(params).destroy
     flash[:success] = "プロジェクトを削除しました"
-    redirect_to projects_url
+    redirect_to root_url
   end
 
   private

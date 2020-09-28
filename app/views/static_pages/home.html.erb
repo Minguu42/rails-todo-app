@@ -1,8 +1,29 @@
-<div class="jumbotron">
-  <h1 class="display-4">Welcome to Rails-todo-app!</h1>
-  <p class="lead">これはRuby on Railsを用いて学習目的で作成したTodoアプリです</p>
-  <hr class="my-4">
-  <p>利用したい場合はここからサインアップしてください</p>
-  <%= link_to 'サインアップ', new_user_registration_path, class: 'btn btn-primary btn-lg', role: 'button' %>
-</div>
-
+<% if user_signed_in? %>
+  <%= link_to 'プロジェクトを作成', new_project_path, class: 'btn btn-info mb-5' %>
+  <h2 class="mb-2">プロジェクト一覧</h2>
+  <hr>
+  <div class="row">
+    <% @projects.each do |project| %>
+      <div class="col-4">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title"><%= project.name %></h5>
+            <h6 class="card-subtitle mb-2 text-muted"><%= @user.email %></h6>
+            <p class="card-text"><%= project.description %></p>
+            <%= link_to '詳細', project_path(project.id), class: 'card-link' %>
+            <%= link_to '編集', edit_project_path(project.id), class: 'card-link' %>
+            <%= link_to '削除', projects_path(project.id), method: :delete, class: 'card-link', style: 'color: red' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <div class="jumbotron">
+    <h1 class="display-4">Welcome to Rails-todo-app!</h1>
+    <p class="lead">これはRuby on Railsを用いて学習目的で作成したTodoアプリです</p>
+    <hr class="my-4">
+    <p>利用したい場合はここからサインアップしてください</p>
+    <%= link_to 'サインアップ', new_user_registration_path, class: 'btn btn-primary btn-lg', role: 'button' %>
+  </div>
+<% end %>
