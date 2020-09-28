@@ -1,10 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :authenticate_user!
 
-  def index
-    @user = current_user
-    @projects = @user.projects.all
-  end
 
   def show
     @project = Project.find(params[:id])
