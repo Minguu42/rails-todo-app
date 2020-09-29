@@ -1,15 +1,13 @@
 <h5><%= @project.name %></h5>
 <p><%= @project.description %></p>
 
-<%#= form_with(model: @task, local: true, class: 'mb-5') do |f| %>
-  <%#= render "shared/error_messages", object: f.object %>
+<%= form_with(scope: :task, url: tasks_path, local: true, class: 'mb-5') do |f| %>
+  <%= f.text_field :name %>
 
-  <%#= f.text_field :name %>
+  <%= f.hidden_field :project_id, value: @project.id %>
 
-  <%#= f.hidden_field :project_id, value: @project.id %>
-
-  <%#= f.submit 'タスクを作成', class: 'btn btn-outline-info' %>
-<%# end %>
+  <%= f.submit 'タスクを作成', class: 'btn btn-outline-info' %>
+<% end %>
 
 <% if @tasks.any? %>
   <% @tasks.each do |task| %>
