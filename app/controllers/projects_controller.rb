@@ -4,8 +4,8 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-    @task = @project.tasks.build
     @tasks = @project.tasks
+    # @task = @project.tasks.build
   end
 
   def new
@@ -39,7 +39,7 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    Project.find(params).destroy
+    Project.find(params[:id]).destroy
     flash[:success] = "プロジェクトを削除しました"
     redirect_to root_url
   end

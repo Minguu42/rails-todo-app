@@ -4,7 +4,7 @@ class TasksController < ApplicationController
     @project = Project.find(params[:task][:project_id])
     @task = @project.tasks.build(task_params)
     if @task.save
-      flash[:success] = "タスクを作成しました"
+      flash[:success] = 'タスクを削除しました'
       redirect_to project_url(@project.id)
     else
       render 'projects/show'
@@ -12,6 +12,9 @@ class TasksController < ApplicationController
   end
 
   def destroy
+    Task.find(params[:id]).destroy
+    flash[:success] = 'タスクを削除しました'
+    redirect_to root_url
   end
 
   private
